@@ -15,10 +15,15 @@
 }
 
 .main-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     transform: translateY(0);
     transition: transform 0.5s ease-in-out;
 }
+
 .shifted{
     transform: translateY(-30vh);
 }
