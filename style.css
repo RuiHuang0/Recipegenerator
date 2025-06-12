@@ -1,0 +1,41 @@
+
+#whole-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
+.click-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-div{
+    position: absolute;
+    transform: translateY(0);
+    transition: transform 0.5s ease-in-out;
+}
+.shifted{
+    transform: translateY(-30vh);
+}
+
+.Food-Item{
+    display: none ;
+    gap: 50px;
+    margin-top: 10vh;
+
+}
+
+.Food-Item > div {
+    width: 40vh;
+    height: 40vh;
+    background: lightgray;
+    border-radius: 10px;
+}
+.foodPop{
+    display: flex;
+}
