@@ -7,6 +7,7 @@
     height: 100vh;
 }
 
+/*Main Div EingabeFeld*/
 
 .click-button{
     display: flex;
@@ -28,19 +29,79 @@
     transform: translateY(-30vh);
 }
 
+
+/* Food-Item-Active: Father from Food-Item-Active > div*/
 .Food-Item{
     display: none ;
-    gap: 50px;
-    margin-top: 10vh;
-
 }
 
-.Food-Item > div {
-    width: 40vh;
-    height: 40vh;
-    background: lightgray;
-    border-radius: 10px;
-}
-.foodPop{
+.Food-Item-Active {
     display: flex;
+    justify-content: center;
+    margin-top: 10vh;
+    gap: 5vh;
+
+}
+/*Div der einzelnen Cards*/
+.Food-Item-Active > div {
+    width: 40vh;
+    height: 30vh;
+    background: lightgray;
+    border-radius: 5vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20vh;
+    padding-top: 0;
+    margin-top: 20vh;
+}
+
+.Food-Item-pic {
+    width: 40vh;
+    border-radius: 5vh;
+
+}
+
+/*recipe RückSeite*/
+
+.card1-back,
+.card0-back{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 40vh;
+}
+
+.card1-front,
+.card0-front{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.card1,
+.card0{
+    transition: transform 0.8s ;
+    transform-style: preserve-3d;
+}
+.card1.flipped,
+.card0.flipped {
+    transform: rotateY(180deg);
+}
+
+.card1-front, .card1-back ,
+.card0-front, .card0-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+.card1-back,
+.card0-back {
+    transform: rotateY(180deg);
 }
