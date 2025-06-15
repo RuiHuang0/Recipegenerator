@@ -12,8 +12,17 @@
     <div class="main-div">
         <h1 class="main-div-h1">Welcome to Foodie-Gen</h1>
         <div class="main-div-div">
-            <input class="Ingredient-Input" type="text" placeholder="Enter Ingredients: Beef,Salt...">
-            <input class="Country-Input" type="text" placeholder="Enter Country: Thai,French...">
+
+            <input list="Area" name="Area" class="Area-Input">
+            <datalist id="Area">
+
+            </datalist>
+
+            <input list="Category" name="Category" class="Category-Input">
+            <datalist id="Category">
+
+            </datalist>
+
             <button onclick="mainDivShiftTop()">Click Here</button>
 
         </div>
@@ -25,9 +34,9 @@
 
         <div class="card0">
             <div class="card0-front">
-                <img class="Food-Item-pic" src="./assets/Hot-Pot-Fondue-China.jpg">
+                <img class="Food-Item-pic" src="./assets/eenton.png">
 
-                <p class="Food-Item-p0">Option 1</p>
+                <p class="Food-Item-p0">No recipe for your search <br> try different combination</p>
                 <button onclick="flipCard('card0')">Click Here to get the recipe</button>
             </div>
             <div class="card0-back">
@@ -43,8 +52,8 @@
 
         <div class="card1">
             <div class="card1-front">
-                <img class="Food-Item-pic" src="./assets/Hot-Pot-Fondue-China.jpg">
-                <p class="Food-Item-p1">Option 2</p>
+                <img class="Food-Item-pic" src="./assets/eenton.png">
+                <p class="Food-Item-p1">No recipe for your search <br> try different combination</p>
                 <button onclick="flipCard('card1')">Click Here to get the recipe</button>
             </div>
             <div class="card1-back">
@@ -65,5 +74,6 @@
 
 
 <script src="recipe_generator.js"></script>
+<script src="flipCard.js"></script>
 </body>
 </html>

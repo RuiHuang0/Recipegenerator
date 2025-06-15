@@ -26,7 +26,7 @@
 }
 
 .shifted{
-    transform: translateY(-30vh);
+    transform: translateY(-40vh);
 }
 
 
@@ -37,28 +37,28 @@
 
 .Food-Item-Active {
     display: flex;
-    justify-content: center;
     margin-top: 10vh;
     gap: 5vh;
 
 }
 /*Div der einzelnen Cards*/
-.Food-Item-Active > div {
+
+.card0,.card1 {
     width: 40vh;
-    height: 30vh;
+    height: 40vh;
     background: lightgray;
     border-radius: 5vh;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    align-items: center;
-    padding-bottom: 20vh;
     padding-top: 0;
     margin-top: 20vh;
+    transition: transform 0.8s ;
+    transform-style: preserve-3d;
 }
 
 .Food-Item-pic {
-    width: 40vh;
+    width: 20vh;
     border-radius: 5vh;
 
 }
@@ -72,7 +72,8 @@
     justify-content: center;
     align-items: center;
     position: absolute;
-    width: 40vh;
+    width: 80vh;
+    margin-top: 20vh;
 }
 
 .card1-front,
@@ -84,11 +85,6 @@
 }
 
 
-.card1,
-.card0{
-    transition: transform 0.8s ;
-    transform-style: preserve-3d;
-}
 .card1.flipped,
 .card0.flipped {
     transform: rotateY(180deg);
@@ -104,4 +100,11 @@
 .card1-back,
 .card0-back {
     transform: rotateY(180deg);
+}
+
+.card1-back, .card0-back {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }

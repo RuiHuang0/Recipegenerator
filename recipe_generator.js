@@ -4,9 +4,60 @@
 const fullData = [];
 fetchData();
 
-
 /*Komplette API Datenbank zusammengefügt*/
 async function fetchData() {
+
+    try {
+        Area = [];
+        const datalist = document.getElementById('Area');
+        const AreaData = await fetch(`https://www.themealdb.com/api/json/v1/1/list.php?a=list`);
+
+        if (!AreaData.ok) {
+            throw new Error("Could not fetch resource");
+        }
+        const data = await AreaData.json();
+
+        if (Array.isArray(data.meals)) {
+            Area.push(...data.meals);
+            console.log(Area);
+
+            for (let i = 0; i < 29;i++){
+                const option = document.createElement("option");
+                option.text = Area[i].strArea;
+                datalist.appendChild(option);
+            }
+        }
+    }
+
+    catch(error) {
+        console.error(error);
+    }
+
+    try {
+        Area = [];
+        const datalist = document.getElementById('Category');
+        const AreaData = await fetch(`https://www.themealdb.com/api/json/v1/1/list.php?c=list`);
+
+        if (!AreaData.ok) {
+            throw new Error("Could not fetch resource");
+        }
+        const data = await AreaData.json();
+
+        if (Array.isArray(data.meals)) {
+            Area.push(...data.meals);
+
+            for (let i = 0; i < 14;i++){
+                const option = document.createElement("option");
+                option.text = Area[i].strCategory;
+                datalist.appendChild(option);
+            }
+        }
+    }
+
+    catch(error) {
+        console.error(error);
+
+    }
 
     try {
         for (let i = 0; i < 26; i++) {
@@ -23,12 +74,12 @@ async function fetchData() {
                 fullData.push(...data.meals);
             }
         }
-        console.log(fullData);
     }
 
     catch(error) {
         console.error(error);
     }
+
     return fullData;
 }
 
@@ -37,86 +88,121 @@ async function fetchData() {
 function mainDivShiftTop(){
     const MainDiv = document.getElementsByClassName("main-div")[0];
     const FoodItem = document.getElementsByClassName("Food-Item")[0];
-    const ingredient = document.getElementsByClassName("Ingredient-Input")[0].value;
-    const country = document.getElementsByClassName("Country-Input")[0].value;
+    const Area = document.getElementsByClassName("Area-Input")[0].value;
+    const Category = document.getElementsByClassName("Category-Input")[0].value;
+
     const p0 = document.getElementsByClassName("Food-Item-p0")[0];
     const p1 = document.getElementsByClassName("Food-Item-p1")[0];
-    const img = document.getElementsByClassName("Food-Item-pic");
+    const img0 = document.getElementsByClassName("Food-Item-pic")[0];
+    const img1 = document.getElementsByClassName("Food-Item-pic")[1];
+
     const recipeText0 = document.getElementsByClassName("Food-Item-p0-back")[0];
     const recipeText1 = document.getElementsByClassName("Food-Item-p1-back")[0];
 
-    const fullDataFiltered = fullData.filter(Data => (Data.strArea == country &&(
-                                                                Data.strIngredient1 == ingredient ||
-                                                                Data.strIngredient2 == ingredient ||
-                                                                Data.strIngredient3 == ingredient ||
-                                                                Data.strIngredient4 == ingredient ||
-                                                                Data.strIngredient5 == ingredient ||
-                                                                Data.strIngredient6 == ingredient ||
-                                                                Data.strIngredient7 == ingredient ||
-                                                                Data.strIngredient8 == ingredient ||
-                                                                Data.strIngredient9 == ingredient ||
-                                                                Data.strIngredient10 == ingredient ||
-                                                                Data.strIngredient11 == ingredient ||
-                                                                Data.strIngredient12 == ingredient ||
-                                                                Data.strIngredient13 == ingredient ||
-                                                                Data.strIngredient14 == ingredient ||
-                                                                Data.strIngredient15 == ingredient ||
-                                                                Data.strIngredient16 == ingredient ||
-                                                                Data.strIngredient17 == ingredient ||
-                                                                Data.strIngredient18 == ingredient ||
-                                                                Data.strIngredient19 == ingredient ||
-                                                                Data.strIngredient20 == ingredient
-            )
+    const fullDataFiltered = fullData.filter(Data => (Data.strArea == Area && Data.strCategory == Category
         )
     );
-
 
     FoodItem.classList.add("Food-Item-Active");
     MainDiv.classList.add("shifted");
 
-    p0.innerHTML = fullDataFiltered[0].strMeal;
-    p1.innerHTML = fullDataFiltered[1].strMeal;
+    console.log(fullDataFiltered.length);
 
-    img[0].src = fullDataFiltered[0].strMealThumb;
-    img[1].src = fullDataFiltered[1].strMealThumb;
+    if (fullDataFiltered.length == 1) {
 
-    recipeText0.innerHTML = fullDataFiltered[0].strInstructions;
-    recipeText1.innerHTML = fullDataFiltered[1].strInstructions;
+        p1.innerHTML = "No recipe for your search try different combination";
+        img1.src = "./assets/eenton.png";
+        recipeText1.innerHTML = "";
 
-    for (let i = 1; i < 20;i++){
+        const ul1 = document.getElementsByClassName("Unordered-List-1")[0];
+        ul1.innerHTML = "";
 
+        /*FirstImage*/
+        p0.innerHTML = fullDataFiltered[0].strMeal;
+        img0.src = fullDataFiltered[0].strMealThumb;
+        recipeText0.innerHTML = fullDataFiltered[0].strInstructions;
         const ul0 = document.getElementsByClassName("Unordered-List-0")[0];
-        const li = document.createElement("li");
 
-        if (fullDataFiltered[0][`strIngredient${i}`] == "" || fullDataFiltered[0][`strIngredient${i}`] == null) {
-            continue
+        ul0.innerHTML = "";
+
+
+        for (let i = 1; i < 20; i++) {
+
+            const li = document.createElement("li");
+
+            if (fullDataFiltered[0][`strIngredient${i}`] == "" || fullDataFiltered[0][`strIngredient${i}`] == null) {
+                continue
+            }
+
+            li.textContent = `${fullDataFiltered[0][`strIngredient${i}`]} : ${fullDataFiltered[0][`strMeasure${i}`]}`;
+            ul0.appendChild(li);
         }
-
-        li.textContent = `${fullDataFiltered[0][`strIngredient${i}`]} : ${fullDataFiltered[0][`strMeasure${i}`]}`;
-        ul0.appendChild(li);
     }
 
-    for (let i = 1; i < 20;i++){
+    if (fullDataFiltered.length == 0) {
+        p0.innerHTML = "No recipe for your search try different combination";
+        img0.src = "./assets/eenton.png";
+        recipeText0.innerHTML = "";
+        const ul0 = document.getElementsByClassName("Unordered-List-0")[0];
 
-        const ul0 = document.getElementsByClassName("Unordered-List-1")[0];
-        const li = document.createElement("li");
+        ul0.innerHTML = "";
 
-        if (fullDataFiltered[1][`strIngredient${i}`] == "" || fullDataFiltered[1][`strIngredient${i}`] == null) {
-            continue
+        p1.innerHTML = "No recipe for your search try different combination";
+        img1.src = "./assets/eenton.png";
+        recipeText1.innerHTML = "";
+
+        const ul1 = document.getElementsByClassName("Unordered-List-1")[0];
+        ul1.innerHTML = "";
+    }
+
+
+
+    else{
+        /*FirstImage*/
+        p0.innerHTML = fullDataFiltered[0].strMeal;
+        img0.src = fullDataFiltered[0].strMealThumb;
+        recipeText0.innerHTML = fullDataFiltered[0].strInstructions;
+        const ul0 = document.getElementsByClassName("Unordered-List-0")[0];
+
+        ul0.innerHTML = "";
+
+
+        for (let i = 1; i < 20;i++){
+
+            const li = document.createElement("li");
+
+            if (fullDataFiltered[0][`strIngredient${i}`] == "" || fullDataFiltered[0][`strIngredient${i}`] == null) {
+                continue
+            }
+
+            li.textContent = `${fullDataFiltered[0][`strIngredient${i}`]} : ${fullDataFiltered[0][`strMeasure${i}`]}`;
+            ul0.appendChild(li);
+        }
+        /*SecondImage*/
+        p1.innerHTML = fullDataFiltered[1].strMeal;
+        img1.src = fullDataFiltered[1].strMealThumb;
+        recipeText1.innerHTML = fullDataFiltered[1].strInstructions;
+
+        const ul1 = document.getElementsByClassName("Unordered-List-1")[0];
+        ul1.innerHTML = "";
+
+        for (let i = 1; i < 20;i++){
+
+            const li = document.createElement("li");
+
+            if (fullDataFiltered[1][`strIngredient${i}`] == "" || fullDataFiltered[1][`strIngredient${i}`] == null) {
+                continue
+            }
+
+            li.textContent = `${fullDataFiltered[1][`strIngredient${i}`]} : ${fullDataFiltered[1][`strMeasure${i}`]}`;
+            ul1.appendChild(li);
         }
 
-        li.textContent = `${fullDataFiltered[1][`strIngredient${i}`]} : ${fullDataFiltered[1][`strMeasure${i}`]}`;
-        ul0.appendChild(li);
     }
 }
 
 
-/*Handling Onclick für Recipe*/
 
-function flipCard(cardClass) {
-    const card = document.querySelector(`.${cardClass}`);
-    card.classList.toggle("flipped");
-}
 
 
 
