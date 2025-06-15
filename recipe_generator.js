@@ -139,7 +139,7 @@ function mainDivShiftTop(){
         }
     }
 
-    if (fullDataFiltered.length == 0) {
+    else if (fullDataFiltered.length == 0) {
         p0.innerHTML = "No recipe for your search try different combination";
         img0.src = "./assets/eenton.png";
         recipeText0.innerHTML = "";
