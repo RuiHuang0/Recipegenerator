@@ -158,10 +158,22 @@ function mainDivShiftTop(){
 
 
     else{
+        /*Generate Random Number */
+        let min = 0;
+        let max = fullDataFiltered.length-1;
+
+        let meal0, meal1;
+        do {
+            meal0 = Math.floor(Math.random() * (max - min + 1)) + min;
+            meal1 = Math.floor(Math.random() * (max - min + 1)) + min;
+        } while (meal0 == meal1);
+
+
+
         /*FirstImage*/
-        p0.innerHTML = fullDataFiltered[0].strMeal;
-        img0.src = fullDataFiltered[0].strMealThumb;
-        recipeText0.innerHTML = fullDataFiltered[0].strInstructions;
+        p0.innerHTML = fullDataFiltered[meal0].strMeal;
+        img0.src = fullDataFiltered[meal0].strMealThumb;
+        recipeText0.innerHTML = fullDataFiltered[meal0].strInstructions;
         const ul0 = document.getElementsByClassName("Unordered-List-0")[0];
 
         ul0.innerHTML = "";
@@ -171,17 +183,17 @@ function mainDivShiftTop(){
 
             const li = document.createElement("li");
 
-            if (fullDataFiltered[0][`strIngredient${i}`] == "" || fullDataFiltered[0][`strIngredient${i}`] == null) {
+            if (fullDataFiltered[meal0][`strIngredient${i}`] == "" || fullDataFiltered[meal0][`strIngredient${i}`] == null) {
                 continue
             }
 
-            li.textContent = `${fullDataFiltered[0][`strIngredient${i}`]} : ${fullDataFiltered[0][`strMeasure${i}`]}`;
+            li.textContent = `${fullDataFiltered[meal0][`strIngredient${i}`]} : ${fullDataFiltered[meal0][`strMeasure${i}`]}`;
             ul0.appendChild(li);
         }
         /*SecondImage*/
-        p1.innerHTML = fullDataFiltered[1].strMeal;
-        img1.src = fullDataFiltered[1].strMealThumb;
-        recipeText1.innerHTML = fullDataFiltered[1].strInstructions;
+        p1.innerHTML = fullDataFiltered[meal1].strMeal;
+        img1.src = fullDataFiltered[meal1].strMealThumb;
+        recipeText1.innerHTML = fullDataFiltered[meal1].strInstructions;
 
         const ul1 = document.getElementsByClassName("Unordered-List-1")[0];
         ul1.innerHTML = "";
@@ -190,11 +202,11 @@ function mainDivShiftTop(){
 
             const li = document.createElement("li");
 
-            if (fullDataFiltered[1][`strIngredient${i}`] == "" || fullDataFiltered[1][`strIngredient${i}`] == null) {
+            if (fullDataFiltered[meal1][`strIngredient${i}`] == "" || fullDataFiltered[meal1][`strIngredient${i}`] == null) {
                 continue
             }
 
-            li.textContent = `${fullDataFiltered[1][`strIngredient${i}`]} : ${fullDataFiltered[1][`strMeasure${i}`]}`;
+            li.textContent = `${fullDataFiltered[meal1][`strIngredient${i}`]} : ${fullDataFiltered[meal1][`strMeasure${i}`]}`;
             ul1.appendChild(li);
         }
 
