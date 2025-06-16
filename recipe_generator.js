@@ -110,8 +110,8 @@ function mainDivShiftTop(){
 
     if (fullDataFiltered.length == 1) {
 
-        p1.innerHTML = "No recipe for your search try different combination";
-        img1.src = "./assets/eenton.png";
+        p1.innerHTML = "0 recipes try different combination";
+        img1.src = "";
         recipeText1.innerHTML = "";
 
         const ul1 = document.getElementsByClassName("Unordered-List-1")[0];
@@ -140,15 +140,13 @@ function mainDivShiftTop(){
     }
 
     else if (fullDataFiltered.length == 0) {
-        p0.innerHTML = "No recipe for your search try different combination";
-        img0.src = "./assets/eenton.png";
+        p0.innerHTML = "0 recipes try different combination";
         recipeText0.innerHTML = "";
         const ul0 = document.getElementsByClassName("Unordered-List-0")[0];
 
         ul0.innerHTML = "";
 
-        p1.innerHTML = "No recipe for your search try different combination";
-        img1.src = "./assets/eenton.png";
+        p1.innerHTML = "0 recipes try different combination";
         recipeText1.innerHTML = "";
 
         const ul1 = document.getElementsByClassName("Unordered-List-1")[0];

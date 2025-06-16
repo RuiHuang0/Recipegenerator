@@ -2,9 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width" initial-scale=1.0>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Foodie-Gen</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mediaqueries.css">
+
 </head>
 <body>
 
@@ -14,12 +16,12 @@
         <h1 class="main-div-h1">Welcome to Foodie-Gen</h1>
         <div class="main-div-div">
 
-            <input list="Area" name="Area" class="Area-Input">
+            <input list="Area" name="Area" class="Area-Input" placeholder="Enter Country">
             <datalist id="Area">
 
             </datalist>
 
-            <input list="Category" name="Category" class="Category-Input">
+            <input list="Category" name="Category" class="Category-Input" placeholder="Enter Category">
             <datalist id="Category">
 
             </datalist>
@@ -35,9 +37,9 @@
 
         <div class="card0">
             <div class="card0-front">
-                <img class="Food-Item-pic" src="./assets/eenton.png">
+                <img class="Food-Item-pic">
 
-                <p class="Food-Item-p0">No recipe for your search <br> try different combination</p>
+                <p class="Food-Item-p0">No recipes <br> try different combination</p>
                 <button onclick="flipCard('card0')">Click Here to get the recipe</button>
             </div>
             <div class="card0-back">
@@ -53,8 +55,8 @@
 
         <div class="card1">
             <div class="card1-front">
-                <img class="Food-Item-pic" src="./assets/eenton.png">
-                <p class="Food-Item-p1">No recipe for your search <br> try different combination</p>
+                <img class="Food-Item-pic">
+                <p class="Food-Item-p1">No recipes <br> try different combination</p>
                 <button onclick="flipCard('card1')">Click Here to get the recipe</button>
             </div>
             <div class="card1-back">

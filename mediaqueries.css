@@ -1,0 +1,35 @@
+@media screen and (max-width: 750px){
+
+    .Food-Item-Active {
+        display: flex;
+        flex-direction: column;
+        gap: 5vw;
+        margin-top: 100vw;
+        padding-bottom: 20vw;
+    }
+
+    .shifted{
+        transform: translateY(-40vw);
+    }
+
+    .card0,.card1 {
+        width: 50vw;
+        height: 60vw;
+    }
+
+    .Food-Item-pic {
+
+        width: 30vw;
+        border-radius: 5vh;
+
+    }
+}
+
+@media screen and (max-width: 440px) {
+    .shifted{
+        transform: translateY(-50vw);
+
+    }
+    .main-div{}
+
+    }
