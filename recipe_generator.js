@@ -166,7 +166,7 @@ function mainDivShiftTop(){
         do {
             meal0 = Math.floor(Math.random() * (max - min + 1)) + min;
             meal1 = Math.floor(Math.random() * (max - min + 1)) + min;
-        } while (meal0 == meal1);
+        } while (meal0 === meal1);
 
 
 
