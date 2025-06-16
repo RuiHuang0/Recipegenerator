@@ -13,13 +13,13 @@
     }
 
     .card0,.card1 {
-        width: 50vw;
+        width: 100vw;
         height: 60vw;
     }
 
     .Food-Item-pic {
 
-        width: 30vw;
+        width: 40vw;
         border-radius: 5vh;
 
     }
@@ -28,8 +28,5 @@
 @media screen and (max-width: 440px) {
     .shifted{
         transform: translateY(-50vw);
-
-    }
-    .main-div{}
 
     }

@@ -140,12 +140,13 @@ function mainDivShiftTop(){
     }
 
     else if (fullDataFiltered.length == 0) {
+        img0.src = null;
         p0.innerHTML = "0 recipes try different combination";
         recipeText0.innerHTML = "";
         const ul0 = document.getElementsByClassName("Unordered-List-0")[0];
 
         ul0.innerHTML = "";
-
+        img1.src = null;
         p1.innerHTML = "0 recipes try different combination";
         recipeText1.innerHTML = "";
 

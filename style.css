@@ -9,6 +9,12 @@
 
 }
 
+button {
+    border: none; /* Example: No border */
+    border-radius: 10px; /* Example: Slightly rounded corners */
+    cursor: pointer; /* Example: Change cursor to a pointer on hover */
+}
+
 
 /*Main Div Eingabe*/
 
