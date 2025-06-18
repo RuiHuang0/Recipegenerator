@@ -2,7 +2,6 @@
 
 const fullData = [];
 const Area = [];
-const Category = [];
 
 main()
 
@@ -129,8 +128,8 @@ function CategoryInput(){
     const recipeText0 = document.getElementsByClassName("Food-Item-p0-back")[0];
     const recipeText1 = document.getElementsByClassName("Food-Item-p1-back")[0];
 
-    const areaValue = document.querySelector('input[list="Area"]').value;
-    const categoryValue = document.querySelector('input[list="Category"]').value;
+    let areaValue = document.querySelector('input[list="Area"]').value;
+    let categoryValue = document.querySelector('input[list="Category"]').value;
 
     const fullDataFiltered = fullData.filter(Data =>
         Data.strArea === areaValue &&
@@ -222,6 +221,11 @@ function CategoryInput(){
         }
 
     }
+    const areaInner = document.querySelector('input[list="Area"]');
+    const categoryInner = document.querySelector('input[list="Category"]');
+
+    areaInner.value = "";
+    categoryInner.value = "";
 }
 
 
