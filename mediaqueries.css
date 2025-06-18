@@ -26,7 +26,8 @@
 }
 
 @media screen and (max-width: 440px) {
-    .shifted{
+    .shifted {
         transform: translateY(-50vw);
 
     }
+}

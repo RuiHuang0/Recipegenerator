@@ -16,17 +16,19 @@
         <h1 class="main-div-h1">Welcome to Foodie-Gen</h1>
         <div class="main-div-div">
 
-            <input list="Area" name="Area" class="Area-Input" placeholder="Enter Country">
+            <input list="Area" name="Area" class="Area-Input-active" placeholder="Select Country from List">
             <datalist id="Area">
 
             </datalist>
 
-            <input list="Category" name="Category" class="Category-Input" placeholder="Enter Category">
+            <input list="Category" name="Category" class="Category-Input-inactive" placeholder="Select Category from List">
             <datalist id="Category">
 
             </datalist>
 
-            <button onclick="mainDivShiftTop()">Click Here</button>
+            <button onclick="AreaInput()" class="Area-Button-active">Click Here</button>
+            <button onclick="CategoryInput()" class="Category-Button-inactive">Click Here</button>
+
 
         </div>
     </div>
@@ -76,7 +78,7 @@
 
 
 
-<script src="recipe_generator.js"></script>
-<script src="flipCard.js"></script>
+<script src="main.js"></script>
+<script src="./flipCard.js"></script>
 </body>
 </html>
