@@ -3,8 +3,9 @@
 const fullData = [];
 const Area = [];
 
-main()
-
+document.addEventListener("DOMContentLoaded", () => {
+    main();
+});
 async function main(){
     await fetchDataArea();
     await fetchDataAll();
