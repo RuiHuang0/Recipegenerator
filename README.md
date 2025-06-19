@@ -6,7 +6,7 @@ Welcome to Foodie-Gen! This web application helps you discover new recipe ideas 
 
 ## 🚀 Live Demo
 
-Experience Foodie-Gen in action right now!
+Experience Foodie-Gen in action right now!!
 
 [**Visit Foodie-Gen Here**](https://foodie-gen.netlify.app/)
 
