@@ -32,7 +32,7 @@ button {
 }
 
 .shifted{
-    transform: translateY(-20vw);
+    transform: translateY(-22vw);
 }
 
 .Category-Input-inactive{
@@ -91,9 +91,10 @@ button {
     transform-style: preserve-3d;
 }
 
+
 .Food-Item-pic {
 
-    width: 25vw;
+    width: 22vw;
     border-radius: 5vh;
 
 }
@@ -131,4 +132,15 @@ button {
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
+}
+
+.card0-back-h3,.card1-back-h3,
+.Unordered-List-0,.Unordered-List-1,
+.Food-Item-p0-back,.Food-Item-p1-back {
+    margin: 20px;
+}
+
+
+.Food-Item-p1, .Food-Item-p0{
+    text-align: center;
 }

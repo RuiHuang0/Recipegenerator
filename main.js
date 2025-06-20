@@ -54,6 +54,7 @@ async function fetchDataAll() {
     } catch (error) {
         console.error(error);
     }
+
 }
 
 /*Generate Input selection of Area*/
@@ -78,6 +79,9 @@ function AreaInput() {
     document.querySelector('.Area-Input-active').classList.add("Area-Input-inactive");
     document.querySelector('.Category-Button-inactive').classList.add("Category-Button-active");
     document.querySelector('.Category-Input-inactive').classList.add("Category-Input-active");
+
+    const IntroText = document.getElementsByClassName("main-div-h1")[0];
+    IntroText.innerHTML = "Perfect! Now click the Category of your desired Food";
 
     const inputArea = document.querySelector('.Area-Input-active').value;
 
@@ -105,6 +109,8 @@ function CategoryInput(){
 
     const CategoryButton = document.getElementsByClassName("Category-Button-inactive")[0];
     const CategoryInput = document.getElementsByClassName("Category-Input-inactive")[0];
+    const IntroText = document.getElementsByClassName("main-div-h1")[0];
+    IntroText.innerHTML = "Great Choice! Select another Country if you changed your mind";
 
     AreaButton.classList.remove("Area-Button-inactive");
     AreaInput.classList.remove("Area-Input-inactive");

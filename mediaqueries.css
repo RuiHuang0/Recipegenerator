@@ -4,17 +4,17 @@
         display: flex;
         flex-direction: column;
         gap: 5vw;
-        margin-top: 100vw;
+        margin-top: 140vw;
         padding-bottom: 20vw;
     }
 
     .shifted{
-        transform: translateY(-40vw);
+        transform: translateY(-39vw);
     }
 
     .card0,.card1 {
         width: 100vw;
-        height: 60vw;
+        height: 70vw;
     }
 
     .Food-Item-pic {
@@ -25,9 +25,16 @@
     }
 }
 
+
 @media screen and (max-width: 440px) {
     .shifted {
         transform: translateY(-50vw);
+
+    }
+
+    .main-div-div{
+        margin-top: 5vw;
+        overflow: hidden;
 
     }
 }
