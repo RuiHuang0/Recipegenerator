@@ -5,7 +5,8 @@ const Area = [];
 
 document.addEventListener("DOMContentLoaded", () => {
     main();
-});
+})
+
 async function main(){
     await fetchDataArea();
     await fetchDataAll();
@@ -68,7 +69,6 @@ function AreaInputSelection(){
         option.text = Area[i].strArea;
         datalist.appendChild(option);
     }
-    console.log('test')
 }
 
 /*Switch von Area zu Category*/

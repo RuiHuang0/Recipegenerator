@@ -15,7 +15,10 @@ button {
     border-radius: 10px;
     cursor: pointer;
 }
-
+button:hover {
+    color: grey;
+    background-color: white;
+}
 
 /*Style for Input Element*/
 .main-div{
@@ -28,7 +31,9 @@ button {
     transform: translateY(0);
     transition: transform 0.5s ease-in-out;
 }
-.main-div-h1 { text-align: center;
+.main-div-h1 {
+    text-align: center;
+    transition: ;
 }
 
 .shifted{
