@@ -89,6 +89,9 @@ function AreaInput() {
 
     // Filter Category by AreaInput
 
+    while (selectElement.options.length > 1) {
+        selectElement.remove(1); // Remove from index 1 onward
+    }
     const uniqueCategories = new Set();
     fullData.filter(meal => meal.strArea === selectArea)
         .forEach(meal => uniqueCategories.add(meal.strCategory));
