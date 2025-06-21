@@ -62,12 +62,13 @@ async function fetchDataAll() {
 
 function AreaInputSelection(){
 
-    const datalist = document.getElementById('Area');
+    const selectElement = document.getElementById("area-select");
 
     for (let i = 0; i < 29; i++) {
         const option = document.createElement("option");
-        option.text = Area[i].strArea;
-        datalist.appendChild(option);
+        option.value = Area[i].strArea;  // Set the value attribute
+        option.textContent = Area[i].strArea;  // Set the visible text
+        selectElement.appendChild(option);
     }
 }
 
@@ -76,27 +77,27 @@ function AreaInputSelection(){
 function AreaInput() {
 
     document.querySelector('.Area-Button-active').classList.add("Area-Button-inactive");
-    document.querySelector('.Area-Input-active').classList.add("Area-Input-inactive");
+    document.querySelector('.Area-Select-active').classList.add("Area-Select-inactive");
     document.querySelector('.Category-Button-inactive').classList.add("Category-Button-active");
-    document.querySelector('.Category-Input-inactive').classList.add("Category-Input-active");
+    document.querySelector('.Category-Select-inactive').classList.add("Category-Select-active");
 
     const IntroText = document.getElementsByClassName("main-div-h1")[0];
     IntroText.innerHTML = "Perfect! Now click the Category of your desired Food";
 
-    const inputArea = document.querySelector('.Area-Input-active').value;
+    const selectArea = document.querySelector('.Area-Select-active').value;
+    const selectElement = document.getElementById("category-select");
 
     // Filter Category by AreaInput
-    const datalist = document.getElementById('Category');
-    datalist.innerHTML = '';
 
     const uniqueCategories = new Set();
-    fullData.filter(meal => meal.strArea === inputArea)
+    fullData.filter(meal => meal.strArea === selectArea)
         .forEach(meal => uniqueCategories.add(meal.strCategory));
 
     uniqueCategories.forEach(category => {
         const option = document.createElement("option");
         option.value = category;
-        datalist.appendChild(option);
+        option.textContent = category;
+        selectElement.appendChild(option);
     });
 }
 
@@ -105,18 +106,18 @@ function CategoryInput(){
 
     /*Switch von Category zu Area*/
     const AreaButton = document.getElementsByClassName("Area-Button-active")[0];
-    const AreaInput = document.getElementsByClassName("Area-Input-active")[0];
+    const AreaSelect = document.getElementsByClassName("Area-Select-active")[0];
 
     const CategoryButton = document.getElementsByClassName("Category-Button-inactive")[0];
-    const CategoryInput = document.getElementsByClassName("Category-Input-inactive")[0];
+    const CategorySelect = document.getElementsByClassName("Category-Select-inactive")[0];
     const IntroText = document.getElementsByClassName("main-div-h1")[0];
     IntroText.innerHTML = "Great Choice! Select another Country if you changed your mind";
 
     AreaButton.classList.remove("Area-Button-inactive");
-    AreaInput.classList.remove("Area-Input-inactive");
+    AreaSelect.classList.remove("Area-Select-inactive");
 
     CategoryButton.classList.remove("Category-Button-active");
-    CategoryInput.classList.remove("Category-Input-active");
+    CategorySelect.classList.remove("Category-Select-active");
 
     //Shift to the Top and display Flipcards
     const MainDiv = document.getElementsByClassName("main-div")[0];
@@ -135,8 +136,8 @@ function CategoryInput(){
     const recipeText0 = document.getElementsByClassName("Food-Item-p0-back")[0];
     const recipeText1 = document.getElementsByClassName("Food-Item-p1-back")[0];
 
-    let areaValue = document.querySelector('input[list="Area"]').value;
-    let categoryValue = document.querySelector('input[list="Category"]').value;
+    let areaValue = document.getElementById("area-select").value;
+    let categoryValue = document.getElementById("category-select").value;
 
     const fullDataFiltered = fullData.filter(Data =>
         Data.strArea === areaValue &&
@@ -228,11 +229,6 @@ function CategoryInput(){
         }
 
     }
-    const areaInner = document.querySelector('input[list="Area"]');
-    const categoryInner = document.querySelector('input[list="Category"]');
-
-    areaInner.value = "";
-    categoryInner.value = "";
 }
 
 

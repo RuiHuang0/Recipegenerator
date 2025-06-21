@@ -39,7 +39,7 @@ button:hover {
     transform: translateY(-22vw);
 }
 
-.Category-Input-inactive{
+.Category-Select-inactive{
     display: none;
 }
 
@@ -47,14 +47,14 @@ button:hover {
     display: none;
 }
 
-.Area-Input-inactive{
+.Area-Select-inactive{
     display: none;
 }
 
 .Area-Button-inactive{
     display: none;
 }
-.Category-Input-active{
+.Category-Select-active{
     display: inline;
 }
 
